@@ -23,7 +23,7 @@ export class AppComponent {
     // Instantiate client, using an HTTP tunnel for communications.
     
     var guac = new Guacamole.Client(
-      new Guacamole.HTTPTunnel("tunnel", false, {})
+      new Guacamole.HTTPTunnel("http://localhost:9999/ccgs/tunnel", false, {})
     );
 
     // Add client to display div
@@ -31,7 +31,7 @@ export class AppComponent {
     
     // Error handler
     guac.onerror = function(error) {
-        alert(error);
+        alert("Error: " + JSON.stringify(error));
     };
 
     // Connect
